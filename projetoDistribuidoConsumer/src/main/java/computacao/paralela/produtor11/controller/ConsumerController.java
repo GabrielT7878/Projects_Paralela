@@ -34,14 +34,4 @@ public class ConsumerController {
         System.out.println("Mensagem Recebida! \n" + message.getPayload());
     }
 
-//    @PostMapping("/sendCoffeeOrderData") // Define your endpoint for coffee order data
-//    public ResponseEntity<String> sendCoffeeOrderData(@RequestBody Pedido pedido) throws JsonProcessingException {
-//        // Envia dados de venda de café para RabbitMQ
-//        //System.out.println("Dados de venda de café a serem enviados");
-//        //System.out.println(mapper.writeValueAsString(pedido));
-//        // Use appropriate exchange and routing key for coffee orders
-//        rabbitTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_PRODUCAO, RabbitMQConfig.ROUTING_KEY_VENDAS, mapper.writeValueAsString(pedido));
-//
-//        return ResponseEntity.ok("Dados da venda de café enviados com sucesso!");
-//    }
 }

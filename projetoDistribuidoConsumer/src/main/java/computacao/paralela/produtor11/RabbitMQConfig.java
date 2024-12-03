@@ -18,11 +18,11 @@ public class RabbitMQConfig {
 
     // Fila e Exchange para Produção Agrícola
     public static final String FILA_PRODUCAO = "filaProducao";
-    public static final String FILA_VENDAS = "filaVendas";
+    public static final String FILA_CLIMA = "filaClima";
     public static final String EXCHANGE_PRODUCAO = "exchangeProducao";
     public static final String ROUTING_KEY_PRODUCAO = "filaProdução";
-    public static final String EXCHANGE_VENDAS = "exchangevendas";
-    public static final String ROUTING_KEY_VENDAS = "filavendas";
+    public static final String EXCHANGE_CLIMA = "exchangeClima";
+    public static final String ROUTING_KEY_CLIMA = "filaClima";
 
     // Definindo as Filas
     @Bean
@@ -32,7 +32,7 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue filaVendas() {
-        return new Queue(FILA_VENDAS, true);
+        return new Queue(FILA_CLIMA, true);
     }
 
     @Bean
@@ -53,7 +53,7 @@ public class RabbitMQConfig {
 
     @Bean
     public DirectExchange exchangeVendas() {
-        return new DirectExchange(EXCHANGE_VENDAS);
+        return new DirectExchange(EXCHANGE_CLIMA);
     }
 
     // Bindings para cada fila
@@ -64,7 +64,7 @@ public class RabbitMQConfig {
 
     @Bean
     public Binding bindingVendas(Queue filaVendas, DirectExchange exchangeVendas) {
-        return BindingBuilder.bind(filaVendas).to(exchangeVendas).with(ROUTING_KEY_VENDAS);
+        return BindingBuilder.bind(filaVendas).to(exchangeVendas).with(ROUTING_KEY_CLIMA);
     }
 
 }
